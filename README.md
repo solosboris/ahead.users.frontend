@@ -68,4 +68,5 @@ ng --version
 21.0.1
 
 npx playwright test
+
 npm run dev
