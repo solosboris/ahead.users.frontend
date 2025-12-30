@@ -24,12 +24,16 @@ function goToRandom() {
 
 <template>
   <h2 class="text-xl font-semibold mb-4">Users</h2>
-
-  <button @click="store.load" :disabled="store.loading"
-    class="mb-4 rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50">
-    Reload
-  </button>
-
+  <div>
+    <button @click="store.load" :disabled="store.loading"
+      class="mb-4 rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50">
+      Reload
+    </button>
+    <button @click="store.randomUser" :disabled="store.loading"
+      class="mb-4 rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50">
+      Random
+    </button>
+  </div>
   <p v-if="store.loading">Loading...</p>
   <p v-if="store.error" class="text-red-600">
     {{ store.error }}
@@ -43,4 +47,5 @@ function goToRandom() {
       </span>
     </template>
   </SortableTable>
+
 </template>

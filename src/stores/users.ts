@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getUsers } from '../services/rest'
+import { getRandom, getUsers } from '../services/rest'
 
 export interface User {
     id: number;
@@ -27,6 +27,20 @@ export const useUsersStore = defineStore('users', {
             } finally {
                 this.loading = false
             }
+        },
+
+        async randomUser() {
+            this.loading = true
+            this.error = null
+            try {
+                await getRandom()
+                await this.load()
+            } catch {
+                this.error = 'Users random user failed to be created'
+            } finally {
+                this.loading = false
+            }
         }
     }
+
 })
